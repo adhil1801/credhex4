@@ -220,6 +220,7 @@ const Dashboard = ({ user, currentPage }) => {
                 <div className="upload-area" onClick={handleUploadAreaClick}>
                   <div className="upload-icon">
                     {isUploading ? <div className="loading-spinner"></div> : '📄'}
+                    }
                   </div>
                   <p className="upload-text">
                     {isUploading ? 'Uploading...' : 'Click to upload or drag and drop'}

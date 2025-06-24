@@ -114,6 +114,7 @@ const AuthForm = ({ onLogin, onSignup, isLoading }) => {
                 disabled={isLoading}
               />
               {errors.email && <span className="error-text">{errors.email}</span>}
+              }
             </div>
             
             <div className="input-span">
@@ -127,6 +128,7 @@ const AuthForm = ({ onLogin, onSignup, isLoading }) => {
                 disabled={isLoading}
               />
               {errors.password && <span className="error-text">{errors.password}</span>}
+              }
             </div>
             
             {!isLoginMode && (
@@ -141,6 +143,7 @@ const AuthForm = ({ onLogin, onSignup, isLoading }) => {
                   disabled={isLoading}
                 />
                 {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
+                }
               </div>
             )}
             
