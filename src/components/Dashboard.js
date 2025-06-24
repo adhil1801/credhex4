@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '../supabaseClient';
 import ClickSpark from './ClickSpark';
 import './Dashboard.css';
@@ -9,13 +9,7 @@ const Dashboard = ({ user, currentPage }) => {
   const [notification, setNotification] = useState(null);
   const fileInputRef = useRef(null);
 
-  useEffect(() => {
-    if (currentPage === 'upload') {
-      loadCertificates();
-    }
-  }, [currentPage]);
-
-  const loadCertificates = async () => {
+  const loadCertificates = useCallback(async () => {
     try {
       const { data, error } = await supabase.storage
         .from('certificates')
@@ -50,7 +44,13 @@ const Dashboard = ({ user, currentPage }) => {
       console.error('Error loading certificates:', error);
       showNotification('Failed to load certificates', 'error');
     }
-  };
+  }, [user.id]);
+
+  useEffect(() => {
+    if (currentPage === 'upload') {
+      loadCertificates();
+    }
+  }, [currentPage, loadCertificates]);
 
   const handleFileUpload = async (event) => {
     const files = Array.from(event.target.files);
@@ -220,7 +220,6 @@ const Dashboard = ({ user, currentPage }) => {
                 <div className="upload-area" onClick={handleUploadAreaClick}>
                   <div className="upload-icon">
                     {isUploading ? <div className="loading-spinner"></div> : '📄'}
-                    }
                   </div>
                   <p className="upload-text">
                     {isUploading ? 'Uploading...' : 'Click to upload or drag and drop'}
