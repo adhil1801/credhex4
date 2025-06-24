@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '../supabaseClient';
+import ClickSpark from './ClickSpark';
 import './Dashboard.css';
 
-const Dashboard = ({ user, isDarkTheme }) => {
+const Dashboard = ({ user, currentPage }) => {
   const [certificates, setCertificates] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
   const [notification, setNotification] = useState(null);
-  const [currentPage, setCurrentPage] = useState('home');
   const fileInputRef = useRef(null);
 
   useEffect(() => {
@@ -210,27 +210,34 @@ const Dashboard = ({ user, isDarkTheme }) => {
           <div className="dashboard-content">
             <section className="upload-section">
               <h2 className="upload-title">Upload Your Certificates</h2>
-              <div className="upload-area" onClick={handleUploadAreaClick}>
-                <div className="upload-icon">
-                  {isUploading ? <div className="loading-spinner"></div> : '📄'}
-                  }
+              <ClickSpark
+                sparkColor="#58bc82"
+                sparkSize={8}
+                sparkRadius={25}
+                sparkCount={12}
+                duration={600}
+              >
+                <div className="upload-area" onClick={handleUploadAreaClick}>
+                  <div className="upload-icon">
+                    {isUploading ? <div className="loading-spinner"></div> : '📄'}
+                  </div>
+                  <p className="upload-text">
+                    {isUploading ? 'Uploading...' : 'Click to upload or drag and drop'}
+                  </p>
+                  <p className="upload-subtext">
+                    PDF, JPG, PNG files up to 10MB
+                  </p>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="file-input"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onChange={handleFileUpload}
+                    disabled={isUploading}
+                  />
                 </div>
-                <p className="upload-text">
-                  {isUploading ? 'Uploading...' : 'Click to upload or drag and drop'}
-                </p>
-                <p className="upload-subtext">
-                  PDF, JPG, PNG files up to 10MB
-                </p>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  className="file-input"
-                  multiple
-                  accept=".pdf,.jpg,.jpeg,.png"
-                  onChange={handleFileUpload}
-                  disabled={isUploading}
-                />
-              </div>
+              </ClickSpark>
             </section>
 
             <section className="certificates-section">
@@ -243,29 +250,38 @@ const Dashboard = ({ user, isDarkTheme }) => {
               ) : (
                 <div className="certificates-grid">
                   {certificates.map((certificate) => (
-                    <div key={certificate.id} className="certificate-card">
-                      <div className="certificate-header">
-                        <div className="certificate-icon">📜</div>
+                    <ClickSpark
+                      key={certificate.id}
+                      sparkColor="#667eea"
+                      sparkSize={6}
+                      sparkRadius={15}
+                      sparkCount={8}
+                      duration={400}
+                    >
+                      <div className="certificate-card">
+                        <div className="certificate-header">
+                          <div className="certificate-icon">📜</div>
+                          <button
+                            className="delete-btn"
+                            onClick={() => handleDeleteCertificate(certificate.id, certificate.name)}
+                            title="Delete certificate"
+                          >
+                            ×
+                          </button>
+                        </div>
+                        <h3 className="certificate-name">{certificate.name}</h3>
+                        <p className="certificate-size">{formatFileSize(certificate.size)}</p>
+                        <p className="certificate-date">
+                          Uploaded: {formatDate(certificate.created_at)}
+                        </p>
                         <button
-                          className="delete-btn"
-                          onClick={() => handleDeleteCertificate(certificate.id, certificate.name)}
-                          title="Delete certificate"
+                          className="certificate-download"
+                          onClick={() => handleDownloadCertificate(certificate)}
                         >
-                          ×
+                          Download
                         </button>
                       </div>
-                      <h3 className="certificate-name">{certificate.name}</h3>
-                      <p className="certificate-size">{formatFileSize(certificate.size)}</p>
-                      <p className="certificate-date">
-                        Uploaded: {formatDate(certificate.created_at)}
-                      </p>
-                      <button
-                        className="certificate-download"
-                        onClick={() => handleDownloadCertificate(certificate)}
-                      >
-                        Download
-                      </button>
-                    </div>
+                    </ClickSpark>
                   ))}
                 </div>
               )}

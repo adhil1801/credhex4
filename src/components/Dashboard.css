@@ -3,6 +3,7 @@
   padding: 20px;
   position: relative;
   z-index: 1;
+  color: #e0e0e0;
 }
 
 .dashboard-content {
@@ -20,7 +21,7 @@
 .welcome-title {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #58bc82 0%, #667eea 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,7 +31,7 @@
 
 .welcome-subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #ccc;
   margin-bottom: 40px;
 }
 
@@ -42,88 +43,88 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: #58bc82;
   margin-bottom: 10px;
 }
 
 .stat-label {
   font-size: 1rem;
-  color: #666;
+  color: #aaa;
   font-weight: 500;
 }
 
 /* Upload Section */
 .upload-section {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border-radius: 25px;
   padding: 40px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeInUp 1s ease-out;
 }
 
 .upload-title {
   font-size: 2rem;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0;
   margin-bottom: 20px;
   font-family: 'Inter', sans-serif;
   text-align: center;
 }
 
 .upload-area {
-  border: 3px dashed rgba(102, 126, 234, 0.5);
+  border: 3px dashed rgba(88, 188, 130, 0.5);
   border-radius: 20px;
   padding: 60px 20px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
 
 .upload-area:hover {
-  border-color: rgba(102, 126, 234, 0.8);
-  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(88, 188, 130, 0.8);
+  background: rgba(0, 0, 0, 0.3);
   transform: translateY(-5px);
 }
 
 .upload-icon {
   font-size: 4rem;
-  color: #667eea;
+  color: #58bc82;
   margin-bottom: 20px;
   animation: bounce 2s infinite;
 }
 
 .upload-text {
   font-size: 1.3rem;
-  color: #555;
+  color: #ccc;
   margin-bottom: 10px;
   font-weight: 500;
 }
 
 .upload-subtext {
   font-size: 1rem;
-  color: #777;
+  color: #aaa;
   opacity: 0.8;
 }
 
@@ -143,11 +144,11 @@
 }
 
 .certificate-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -156,8 +157,8 @@
 
 .certificate-card:hover {
   transform: translateY(-10px) scale(1.02);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .certificate-header {
@@ -169,7 +170,7 @@
 
 .certificate-icon {
   font-size: 2.5rem;
-  color: #667eea;
+  color: #58bc82;
   margin-bottom: 10px;
 }
 
@@ -197,26 +198,26 @@
 .certificate-name {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0;
   margin-bottom: 8px;
   word-break: break-word;
 }
 
 .certificate-size {
   font-size: 0.9rem;
-  color: #666;
+  color: #bbb;
   opacity: 0.8;
 }
 
 .certificate-date {
   font-size: 0.85rem;
-  color: #777;
+  color: #aaa;
   margin-top: 10px;
   opacity: 0.7;
 }
 
 .certificate-download {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #58bc82, #667eea);
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
@@ -230,20 +231,20 @@
 
 .certificate-download:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(88, 188, 130, 0.3);
 }
 
 /* Empty State */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: #666;
+  color: #aaa;
   animation: fadeIn 1s ease-out;
 }
 
 .empty-icon {
   font-size: 4rem;
-  color: #ccc;
+  color: #666;
   margin-bottom: 20px;
   opacity: 0.6;
 }
@@ -268,18 +269,18 @@
 .settings-title {
   font-size: 2rem;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0;
   margin-bottom: 30px;
   text-align: center;
   font-family: 'Inter', sans-serif;
 }
 
 .settings-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .setting-item {
@@ -289,20 +290,21 @@
 .setting-item label {
   display: block;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0;
   margin-bottom: 8px;
 }
 
 .setting-item input {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   font-size: 1rem;
-  color: #333;
+  color: #e0e0e0;
   outline: none;
+  box-sizing: border-box;
 }
 
 .setting-item input:disabled {
@@ -317,7 +319,7 @@
   height: 20px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top-color: #667eea;
+  border-top-color: #58bc82;
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -335,83 +337,11 @@
 }
 
 .notification.success {
-  background: linear-gradient(135deg, #4caf50, #45a049);
+  background: linear-gradient(135deg, #58bc82, #4caf50);
 }
 
 .notification.error {
   background: linear-gradient(135deg, #f44336, #d32f2f);
-}
-
-/* Dark Theme */
-.dark-theme .welcome-subtitle {
-  color: #ccc;
-}
-
-.dark-theme .stat-label {
-  color: #aaa;
-}
-
-.dark-theme .upload-title,
-.dark-theme .settings-title {
-  color: #e0e0e0;
-}
-
-.dark-theme .upload-text {
-  color: #ccc;
-}
-
-.dark-theme .upload-subtext {
-  color: #aaa;
-}
-
-.dark-theme .certificate-card {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark-theme .certificate-card:hover {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.dark-theme .certificate-name {
-  color: #e0e0e0;
-}
-
-.dark-theme .certificate-size {
-  color: #bbb;
-}
-
-.dark-theme .certificate-date {
-  color: #aaa;
-}
-
-.dark-theme .settings-card {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark-theme .setting-item label {
-  color: #e0e0e0;
-}
-
-.dark-theme .setting-item input {
-  background: rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: #e0e0e0;
-}
-
-.dark-theme .stat-card {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark-theme .stat-card:hover {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.dark-theme .upload-section {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Animations */

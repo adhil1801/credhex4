@@ -1,8 +1,9 @@
 import React from 'react';
-import { Home, Upload, Settings, LogOut, Sun, Moon } from 'lucide-react';
+import { Home, Upload, Settings, LogOut } from 'lucide-react';
+import ClickSpark from './ClickSpark';
 import './Dock.css';
 
-const Dock = ({ onNavigate, onThemeToggle, onLogout, isDarkTheme, currentPage }) => {
+const Dock = ({ onNavigate, onLogout, currentPage }) => {
   const dockItems = [
     { id: 'home', icon: Home, label: 'Home', action: () => onNavigate('home') },
     { id: 'upload', icon: Upload, label: 'Upload', action: () => onNavigate('upload') },
@@ -13,33 +14,41 @@ const Dock = ({ onNavigate, onThemeToggle, onLogout, isDarkTheme, currentPage })
     <div className="dock-container">
       <div className="dock">
         {dockItems.map((item) => (
-          <div
+          <ClickSpark
             key={item.id}
-            className={`dock-item ${currentPage === item.id ? 'active' : ''}`}
-            onClick={item.action}
-            title={item.label}
+            sparkColor="#58bc82"
+            sparkSize={8}
+            sparkRadius={20}
+            sparkCount={6}
+            duration={400}
           >
-            <item.icon size={24} />
-          </div>
+            <div
+              className={`dock-item ${currentPage === item.id ? 'active' : ''}`}
+              onClick={item.action}
+              title={item.label}
+            >
+              <item.icon size={24} />
+            </div>
+          </ClickSpark>
         ))}
         
         <div className="dock-separator" />
         
-        <div
-          className="dock-item"
-          onClick={onThemeToggle}
-          title="Toggle Theme"
+        <ClickSpark
+          sparkColor="#ff6b6b"
+          sparkSize={10}
+          sparkRadius={25}
+          sparkCount={8}
+          duration={500}
         >
-          {isDarkTheme ? <Sun size={24} /> : <Moon size={24} />}
-        </div>
-        
-        <div
-          className="dock-item logout"
-          onClick={onLogout}
-          title="Logout"
-        >
-          <LogOut size={24} />
-        </div>
+          <div
+            className="dock-item logout"
+            onClick={onLogout}
+            title="Logout"
+          >
+            <LogOut size={24} />
+          </div>
+        </ClickSpark>
       </div>
     </div>
   );

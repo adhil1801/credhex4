@@ -11,7 +11,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [notification, setNotification] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
   const [isSupabaseConfigured, setIsSupabaseConfigured] = useState(false);
@@ -139,20 +138,16 @@ function App() {
     setTimeout(() => setNotification(null), 5000);
   };
 
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
-
   const handleNavigation = (page) => {
     setCurrentPage(page);
   };
 
   if (loading) {
     return (
-      <div className={`App ${isDarkTheme ? 'dark-theme' : ''}`}>
+      <div className="App dark-theme">
         <div className="waves-background">
           <Waves
-            lineColor={isDarkTheme ? "rgba(102, 126, 234, 0.2)" : "rgba(102, 126, 234, 0.3)"}
+            lineColor="rgba(102, 126, 234, 0.2)"
             backgroundColor="transparent"
           />
         </div>
@@ -166,10 +161,10 @@ function App() {
 
   if (!isSupabaseConfigured) {
     return (
-      <div className={`App ${isDarkTheme ? 'dark-theme' : ''}`}>
+      <div className="App dark-theme">
         <div className="waves-background">
           <Waves
-            lineColor={isDarkTheme ? "rgba(102, 126, 234, 0.2)" : "rgba(102, 126, 234, 0.3)"}
+            lineColor="rgba(102, 126, 234, 0.2)"
             backgroundColor="transparent"
           />
         </div>
@@ -183,9 +178,6 @@ function App() {
               />
               <h1 className="app-title">CredHex</h1>
             </div>
-            <button className="theme-toggle" onClick={toggleTheme}>
-              {isDarkTheme ? '☀️' : '🌙'}
-            </button>
           </header>
 
           <div className="setup-section">
@@ -217,10 +209,10 @@ function App() {
 
   return (
     <Router>
-      <div className={`App ${isDarkTheme ? 'dark-theme' : ''}`}>
+      <div className="App dark-theme">
         <div className="waves-background">
           <Waves
-            lineColor={isDarkTheme ? "rgba(102, 126, 234, 0.2)" : "rgba(102, 126, 234, 0.3)"}
+            lineColor="rgba(102, 126, 234, 0.2)"
             backgroundColor="transparent"
           />
         </div>
@@ -247,14 +239,11 @@ function App() {
                 <>
                   <Dashboard 
                     user={user} 
-                    isDarkTheme={isDarkTheme}
                     currentPage={currentPage}
                   />
                   <Dock
                     onNavigate={handleNavigation}
-                    onThemeToggle={toggleTheme}
                     onLogout={handleLogout}
-                    isDarkTheme={isDarkTheme}
                     currentPage={currentPage}
                   />
                 </>

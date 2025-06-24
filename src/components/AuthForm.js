@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ClickSpark from './ClickSpark';
 import './AuthForm.css';
 
 const AuthForm = ({ onLogin, onSignup, isLoading }) => {
@@ -70,101 +71,86 @@ const AuthForm = ({ onLogin, onSignup, isLoading }) => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="switch">
-        <input
-          type="checkbox"
-          className="toggle"
-          checked={!isLoginMode}
-          onChange={toggleMode}
-          disabled={isLoading}
-        />
-        <span className="slider"></span>
-        <span className="card-side"></span>
-        
-        <div className="flip-card__inner">
-          {/* Login Form */}
-          <div className="flip-card__front">
-            <div className="title">Welcome Back</div>
-            <form className="flip-card__form" onSubmit={handleSubmit}>
-              <input
-                className={`flip-card__input ${errors.email ? 'error' : ''}`}
-                name="email"
-                placeholder="Email"
-                type="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                disabled={isLoading}
-              />
-              {errors.email && <span className="error-text">{errors.email}</span>}
-              }
-              
-              <input
-                className={`flip-card__input ${errors.password ? 'error' : ''}`}
-                name="password"
-                placeholder="Password"
-                type="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                disabled={isLoading}
-              />
-              {errors.password && <span className="error-text">{errors.password}</span>}
-              }
-              
-              <button className="flip-card__btn" type="submit" disabled={isLoading}>
-                {isLoading ? 'Signing in...' : 'Login'}
-              </button>
-            </form>
+    <ClickSpark
+      sparkColor="#58bc82"
+      sparkSize={12}
+      sparkRadius={20}
+      sparkCount={10}
+      duration={500}
+    >
+      <div className="wrapper">
+        <div className="auth-container">
+          <h1 className="auth-title">CredHex</h1>
+          <p className="auth-subtitle">Digital Certificate Management</p>
+          
+          <div className="toggle-container">
+            <button
+              type="button"
+              className={`toggle-button ${isLoginMode ? 'active' : ''}`}
+              onClick={() => setIsLoginMode(true)}
+              disabled={isLoading}
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              className={`toggle-button ${!isLoginMode ? 'active' : ''}`}
+              onClick={() => setIsLoginMode(false)}
+              disabled={isLoading}
+            >
+              Sign Up
+            </button>
           </div>
 
-          {/* Signup Form */}
-          <div className="flip-card__back">
-            <div className="title">Create Account</div>
-            <form className="flip-card__form" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="input-span">
+              <label className="label">Email</label>
               <input
-                className={`flip-card__input ${errors.email ? 'error' : ''}`}
-                name="email"
-                placeholder="Email"
                 type="email"
+                name="email"
+                placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleInputChange}
                 disabled={isLoading}
               />
               {errors.email && <span className="error-text">{errors.email}</span>}
-              }
-              
+            </div>
+            
+            <div className="input-span">
+              <label className="label">Password</label>
               <input
-                className={`flip-card__input ${errors.password ? 'error' : ''}`}
-                name="password"
-                placeholder="Password"
                 type="password"
+                name="password"
+                placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleInputChange}
                 disabled={isLoading}
               />
               {errors.password && <span className="error-text">{errors.password}</span>}
-              }
-              
-              <input
-                className={`flip-card__input ${errors.confirmPassword ? 'error' : ''}`}
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                type="password"
-                value={formData.confirmPassword}
-                onChange={handleInputChange}
-                disabled={isLoading}
-              />
-              {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
-              }
-              
-              <button className="flip-card__btn" type="submit" disabled={isLoading}>
-                {isLoading ? 'Creating...' : 'Sign Up'}
-              </button>
-            </form>
-          </div>
+            </div>
+            
+            {!isLoginMode && (
+              <div className="input-span">
+                <label className="label">Confirm Password</label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                />
+                {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
+              </div>
+            )}
+            
+            <button className="submit" type="submit" disabled={isLoading}>
+              {isLoading ? (isLoginMode ? 'Signing in...' : 'Creating account...') : (isLoginMode ? 'Login' : 'Sign Up')}
+            </button>
+          </form>
         </div>
       </div>
-    </div>
+    </ClickSpark>
   );
 };
 
